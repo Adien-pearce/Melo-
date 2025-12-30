@@ -1,13 +1,3 @@
-# Melo-
-Below is the **cleaned, submission-ready version** of your data.
-✔ **No content removed**
-✔ **Meaning and data preserved**
-✔ **Professional academic / project-report tone**
-✔ **Emojis, badges, decorative markdown, and UI clutter removed**
-✔ **Clear headings and structured layout**
-
----
-
 # Melo – AI Mental Wellness Companion
 
 ## Overview
@@ -319,16 +309,6 @@ This project is licensed under the MIT License.
 Melo is not a replacement for professional mental health care.
 In case of emergency, users are advised to contact local emergency services or certified medical professionals immediately.
 
----
-
-### If you want next:
-
-* **MSBTE / IEEE project report formatting**
-* **Chapter-wise academic report conversion**
-* **Word (.docx) or PDF generation**
-* **Abstract, Problem Statement, Objectives, Conclusion**
-
-Just tell me 👍
 
   
 ### 💜 Made with love for Gen Z's mental wellness
