@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melo App | Mental Wellness</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- PWA Configuration -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="icons/favicon.ico">
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#0d1117">
+    <meta name="description" content="Your therapist-backed mental wellness companion">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body class="bg-[#0d1117] text-gray-100 min-h-screen">
+    <!-- Header (Simple/Minimal) -->
+    <header class="sticky top-0 z-10 bg-[#0d1117]/95 backdrop-blur-sm p-4 border-b border-gray-800 shadow-lg max-w-7xl mx-auto">
+        <div class="flex justify-between items-center max-w-4xl mx-auto">
+            <div class="flex items-center space-x-2">
+                <a href="index.html" class="p-2 text-gray-400 hover:text-purple-400 transition" title="Go Home">
+                    <i data-lucide="home" class="w-6 h-6"></i>
+                </a>
+                <!-- Back Button -->
+                <button id="back-btn" onclick="goBack()" class="p-2 text-gray-400 hover:text-purple-400 transition btn-hover hidden" title="Go Back">
+                    <i data-lucide="arrow-left" class="w-6 h-6"></i>
+                </button>
+                <h1 class="text-2xl font-extrabold text-[#c4b5fd]">Melo <span class="text-purple-400">🧠</span></h1>
+            </div>
+            <div class="flex items-center space-x-3">
+                <div id="user-id-display" class="text-xs text-gray-400 p-2 bg-gray-800 rounded-full hidden sm:block">
+                    <!-- User ID will be populated here -->
+                </div>
+                <!-- Admin Access Button -->
+                <button id="admin-btn" onclick="showAdminPanel()" class="p-2 text-gray-400 hover:text-purple-400 transition btn-hover" title="Admin Panel">
+                     <i data-lucide="shield" class="w-6 h-6"></i>
+                </button>
+                <!-- Settings Button (Moved to Header) -->
+                <button onclick="changeView('settings')" class="p-2 text-gray-400 hover:text-purple-400 transition btn-hover">
+                     <i data-lucide="settings" class="w-6 h-6"></i>
+                </button>
+                <!-- Exit/Logout Button -->
+                <button onclick="LoginPage.logout()" class="p-2 text-gray-400 hover:text-red-400 transition btn-hover" title="Logout/Exit">
+                     <i data-lucide="log-out" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <div id="app-content" class="main-content px-4">
+        <!-- Content will be rendered here by JavaScript -->
+        <div class="p-8 text-center text-gray-500">
+            <div class="flex flex-col items-center space-y-4">
+                <i data-lucide="loader" class="w-10 h-10 text-purple-500 animate-spin"></i>
+                <p>Initializing Melo...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation Bar (Mobile-First) -->
+    <nav id="main-nav" class="fixed bottom-0 left-0 right-0 h-24 bg-[#161b22] border-t border-gray-700 z-20 shadow-[0_-5px_20px_rgba(0,0,0,0.5)]">
+        <div class="flex justify-around items-center h-full max-w-lg mx-auto p-4">
+            <!-- Auri Chat -->
+            <button class="nav-item flex flex-col items-center space-y-1 text-purple-400 active" onclick="changeView('auri')">
+                <i data-lucide="sparkles" class="nav-icon w-7 h-7"></i>
+                <span class="text-xs font-medium">Auri</span>
+            </button>
+            <!-- Daily Journal -->
+            <button class="nav-item flex flex-col items-center space-y-1 text-gray-400" onclick="changeView('journal')">
+                <i data-lucide="book-open-text" class="nav-icon w-7 h-7"></i>
+                <span class="text-xs font-medium">Journal</span>
+            </button>
+            <!-- Insights -->
+            <button class="nav-item flex flex-col items-center space-y-1 text-gray-400" onclick="changeView('insights')">
+                <i data-lucide="line-chart" class="nav-icon w-7 h-7"></i>
+                <span class="text-xs font-medium">Insights</span>
+            </button>
+            <!-- Micro-Therapy Toolkit -->
+            <button class="nav-item flex flex-col items-center space-y-1 text-gray-400" onclick="changeView('toolkit')">
+                <i data-lucide="toolbox" class="nav-icon w-7 h-7"></i>
+                <span class="text-xs font-medium">Toolkit</span>
+            </button>
+            <!-- Emergency Aid -->
+            <button class="nav-item flex flex-col items-center space-y-1 text-gray-400" onclick="changeView('aid')">
+                <i data-lucide="zap" class="nav-icon w-7 h-7"></i>
+                <span class="text-xs font-medium">Aid</span>
+            </button>
+            <!-- Vent Room -->
+            <button class="nav-item flex flex-col items-center space-y-1 text-gray-400" onclick="changeView('vent')">
+                <i data-lucide="message-square-text" class="nav-icon w-7 h-7"></i>
+                <span class="text-xs font-medium">Vent</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- JavaScript Files -->
+    <script src="config.js" defer></script>
+    <script src="api.js" defer></script>
+    <script src="utils-export.js" defer></script>
+    <script src="admin-auth.js" defer></script>
+    <script src="messaging-service.js" defer></script>
+    <script src="push-notifications.js" defer></script>
+    <script src="voice-input.js" defer></script>
+    <script src="login-page.js" defer></script>
+    <script src="graph-export.js" defer></script>
+    <script type="module" src="firebase-config.js"></script>
+    <script src="app.js" defer></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>

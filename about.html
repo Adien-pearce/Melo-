@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Melo | Mental Wellness</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#0d1117] text-gray-100 min-h-screen">
+    <header class="sticky top-0 z-50 p-4">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-extrabold text-[#c4b5fd]">Melo <span class="text-purple-400">🧠</span></a>
+            <nav class="flex space-x-6">
+                <a href="index.html" class="hover:text-purple-400 transition">Home</a>
+                <a href="about.html" class="text-purple-400 font-bold">About</a>
+                <a href="melo.html" class="px-4 py-2 bg-purple-600 rounded-lg hover:bg-purple-700 transition">Launch App</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 py-12 relative z-10">
+        <div class="animate-pageFadeIn">
+            <h2 class="text-4xl font-bold text-white mb-8 flex items-center space-x-3">
+                <i data-lucide="info" class="w-10 h-10 text-purple-400"></i>
+                <span>About Melo</span>
+            </h2>
+            
+            <div class="bg-gray-800/50 backdrop-blur-md p-8 rounded-3xl shadow-xl mb-8 border border-purple-500/30 card-hover">
+                <h3 class="text-2xl font-semibold text-purple-300 mb-6 flex items-center space-x-3">
+                    <i data-lucide="users" class="w-7 h-7"></i>
+                    <span>Our Founders</span>
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-6 bg-gray-900/50 rounded-2xl border border-gray-700 text-center">
+                        <div class="w-20 h-20 bg-purple-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i data-lucide="user" class="w-10 h-10 text-purple-400"></i>
+                        </div>
+                        <h4 class="font-bold text-white">Rucha Rathod</h4>
+                        <p class="text-sm text-gray-400">Founder & Coder</p>
+                    </div>
+                    <div class="p-6 bg-gray-900/50 rounded-2xl border border-gray-700 text-center">
+                        <div class="w-20 h-20 bg-purple-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i data-lucide="user" class="w-10 h-10 text-purple-400"></i>
+                        </div>
+                        <h4 class="font-bold text-white">Pranjal Dabholkar</h4>
+                        <p class="text-sm text-gray-400">Founder & Coder</p>
+                    </div>
+                    <div class="p-6 bg-gray-900/50 rounded-2xl border border-gray-700 text-center">
+                        <div class="w-20 h-20 bg-purple-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i data-lucide="user" class="w-10 h-10 text-purple-400"></i>
+                        </div>
+                        <h4 class="font-bold text-white">Adien Pearce</h4>
+                        <p class="text-sm text-gray-400">Founder & Coder</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gray-800/50 backdrop-blur-md p-8 rounded-3xl shadow-xl mb-8 border border-gray-700 card-hover">
+                <h3 class="text-2xl font-semibold text-sky-300 mb-4 flex items-center space-x-3">
+                    <i data-lucide="book-open" class="w-7 h-7"></i>
+                    <span>Project Mission</span>
+                </h3>
+                <p class="text-gray-300 leading-relaxed text-lg">
+                    Melo is an innovative AI-powered mental wellness platform specifically engineered to address the unique psychological and emotional needs of Generation Z. As digital natives facing unprecedented mental health challenges including anxiety, depression, and social isolation, Gen Z requires accessible, stigma-free, and technologically sophisticated mental health solutions.
+                </p>
+            </div>
+
+            <div class="bg-purple-900/20 p-8 rounded-3xl border border-purple-500/20 text-center">
+                <p class="text-purple-300">
+                    Melo version 1.0.0 • Built with ❤️ for Gen Z
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-12 border-t border-gray-800 text-center text-gray-500">
+        <p>&copy; 2025 Melo. All rights reserved.</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

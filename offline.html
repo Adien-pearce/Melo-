@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melo - Offline</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117;
+            color: #f3f4f6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="max-w-md w-full">
+        <div class="bg-gray-800 rounded-2xl p-8 shadow-2xl border border-purple-500/30 text-center">
+            <div class="inline-flex items-center justify-center w-16 h-16 bg-purple-900/50 rounded-full mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
+                </svg>
+            </div>
+            <h1 class="text-2xl font-bold text-white mb-2">You're Offline</h1>
+            <p class="text-gray-400 mb-6">Don't worry! You can still use Melo locally.</p>
+            
+            <div class="space-y-3 mb-6">
+                <div class="flex items-center space-x-3 p-3 bg-gray-700/50 rounded-lg">
+                    <span class="text-purple-400">📝</span>
+                    <div class="text-left">
+                        <p class="font-medium text-white">Journal Entries</p>
+                        <p class="text-sm text-gray-400">Write and save locally</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-center space-x-3 p-3 bg-gray-700/50 rounded-lg">
+                    <span class="text-purple-400">🧘‍♀️</span>
+                    <div class="text-left">
+                        <p class="font-medium text-white">Toolkit</p>
+                        <p class="text-sm text-gray-400">Breathing exercises work offline</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-center space-x-3 p-3 bg-gray-700/50 rounded-lg">
+                    <span class="text-purple-400">📖</span>
+                    <div class="text-left">
+                        <p class="font-medium text-white">Saved Data</p>
+                        <p class="text-sm text-gray-400">Access your previous entries</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-red-900/20 p-4 rounded-xl border border-red-500/30 mb-6">
+                <h3 class="text-red-300 font-semibold mb-2">Need Immediate Help?</h3>
+                <p class="text-red-200 text-sm mb-3">These work even offline:</p>
+                <div class="space-y-2">
+                    <div class="text-center">
+                        <div class="text-xl font-bold text-red-400 font-mono">100</div>
+                        <p class="text-xs text-red-300">Police Emergency</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-xl font-bold text-red-400 font-mono">112</div>
+                        <p class="text-xs text-red-300">Pan-India Emergency</p>
+                    </div>
+                </div>
+            </div>
+            
+            <button onclick="location.reload()" class="w-full px-4 py-3 bg-purple-600 rounded-xl font-semibold hover:bg-purple-700 transition-all duration-300 text-white mb-3">
+                Try to Reconnect
+            </button>
+            
+            <button onclick="window.location.href='/'" class="w-full px-4 py-3 bg-gray-700 rounded-xl font-semibold hover:bg-gray-600 transition-all duration-300 text-white">
+                Use Offline Mode
+            </button>
+            
+            <p class="text-center text-xs text-gray-500 mt-4">Reconnecting automatically...</p>
+        </div>
+    </div>
+    
+    <script>
+        // Check for connection periodically
+        function checkConnection() {
+            if (navigator.onLine) {
+                window.location.href = '/';
+            }
+        }
+        
+        // Check every 3 seconds
+        setInterval(checkConnection, 3000);
+        
+        // Also check when connection status changes
+        window.addEventListener('online', () => {
+            window.location.href = '/';
+        });
+    </script>
+</body>
+</html>

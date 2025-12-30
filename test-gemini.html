@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini API Test</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white p-8">
+    <div class="max-w-2xl mx-auto">
+        <h1 class="text-3xl font-bold mb-6">Gemini API Test</h1>
+        
+        <div class="mb-6">
+            <label class="block text-sm font-medium mb-2">Test Message:</label>
+            <input type="text" id="testInput" class="w-full p-3 bg-gray-800 rounded-lg" placeholder="Type a test message..." value="Explain how AI works in a few words">
+        </div>
+        
+        <button onclick="testGemini()" class="bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-lg">
+            Test Gemini API
+        </button>
+        
+        <div id="result" class="mt-6 p-4 bg-gray-800 rounded-lg min-h-[100px]">
+            <p class="text-gray-400">Result will appear here...</p>
+        </div>
+        
+        <div id="debug" class="mt-6 p-4 bg-gray-800 rounded-lg text-sm font-mono">
+            <p class="text-gray-400">Debug info will appear here...</p>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="api.js"></script>
+    <script>
+        async function testGemini() {
+            const input = document.getElementById('testInput');
+            const result = document.getElementById('result');
+            const debug = document.getElementById('debug');
+            
+            const prompt = input.value.trim();
+            if (!prompt) {
+                result.innerHTML = '<p class="text-red-400">Please enter a test message</p>';
+                return;
+            }
+            
+            result.innerHTML = '<p class="text-yellow-400">Testing...</p>';
+            debug.innerHTML = '<p class="text-gray-400">Debug info will appear here...</p>';
+            
+            try {
+                console.log('Starting test...');
+                debug.innerHTML += '<br>Starting test...';
+                
+                const response = await api.generateAuriResponse(prompt);
+                console.log('Response:', response);
+                debug.innerHTML += '<br>Response received: ' + response;
+                
+                result.innerHTML = `
+                    <div class="space-y-2">
+                        <p class="text-green-400">✅ Success!</p>
+                        <p><strong>Response:</strong> ${response}</p>
+                    </div>
+                `;
+                
+            } catch (error) {
+                console.error('Error:', error);
+                debug.innerHTML += '<br>Error: ' + error.message;
+                
+                result.innerHTML = `
+                    <div class="space-y-2">
+                        <p class="text-red-400">❌ Error!</p>
+                        <p><strong>Error:</strong> ${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+        
+        // Auto-test on page load
+        window.addEventListener('load', () => {
+            setTimeout(testGemini, 1000);
+        });
+    </script>
+</body>
+</html>
