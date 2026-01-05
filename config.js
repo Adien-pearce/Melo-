@@ -7,7 +7,7 @@ const CONFIG = {
     BUILD: "2024.10.24",
     
     // API Configuration
-    API_KEY: "AIzaSyC9ZSV4hpKHLSpZOEMW7_Wg_cLTDymzyks", // Replace with a valid API key
+    API_KEY: "??????", // Replace with a valid API key
     GEMINI_MODEL: 'gemini-2.5-flash',
     API_TIMEOUT: 10000,
     
@@ -107,4 +107,5 @@ const CONFIG = {
         SAVE_FAILED: "Failed to save. Trying locally...",
         LOAD_FAILED: "Failed to load data."
     }
+
 };
